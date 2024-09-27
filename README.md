@@ -1,5 +1,5 @@
 ---
 layout: home
-title: "maniaa22"
+title: "Maniaa22"
 ---
 Built with jekyll, hosted on github pages.
