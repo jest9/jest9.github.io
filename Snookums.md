@@ -1,4 +1,4 @@
-This is maniaa22
+This is maniaa22.
 
 This is the snookums writeup, a Box on offsec labs practice platform, it is intermediate difficulty.
 
