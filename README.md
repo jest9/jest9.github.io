@@ -1,2 +1,1 @@
-# maniaa22.github.io
-Writeups and whatnot
+Jekyll and github pages!
