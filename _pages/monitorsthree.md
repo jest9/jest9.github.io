@@ -6,3 +6,5 @@ categories: blog
 ---
 
 MonitorsThree Writeup by <span style="color:yellow">Maniaa</span>.
+
+<pre><code>print("hello world")</code></pre>
