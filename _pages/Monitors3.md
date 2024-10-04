@@ -7,8 +7,6 @@ categories: Writeup
 
 MonitorsThree Writeup by <span style="color:yellow">Maniaa</span>.
 
-&nbsp;
-
 # Scan
 
 ```text
@@ -30,7 +28,6 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 19.67 seconds
 ```
 
-&nbsp;
 &nbsp;
 
 # SQL Injection
@@ -69,7 +66,6 @@ I then attempted to crack the hashes via hashcat, however only one was successfu
 We now have the credentials for admin@monitorsthree.htb.
 
 &nbsp;
-&nbsp;
 
 # Cacti
 
@@ -94,7 +90,6 @@ my-venv/bin/python3 CVE-2024-25641.py --user admin --pass greencacti2001 --cmd "
 
 ![image](https://github.com/user-attachments/assets/373304ee-4591-4022-ac3d-dce61361783d)
 
-&nbsp;
 &nbsp;
 
 # Privilege Escalation
