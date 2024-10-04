@@ -1,3 +1,15 @@
+---
+layout: post
+title: "MonitorsThree"
+date: 2024-10-04 10:04:00 +0000
+categories: blog
+---
+
+MonitorsThree Writeup by <span style="color:yellow">Maniaa</span>.
+
+<pre><code>print("hello world")</code></pre>
+
+
 ```text
 Nmap scan report for 10.10.11.30
 Host is up (0.025s latency).
