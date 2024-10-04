@@ -34,14 +34,11 @@ Nmap done: 1 IP address (1 host up) scanned in 19.67 seconds
 
 There is SQL injection on the forgot password page on the monitorsthree site.:
 
-<p align="center">
-  ![image](https://github.com/user-attachments/assets/a4fae5cc-f532-49bb-8228-d0d3068cd8f1)
-</p>
-
+![image](https://github.com/user-attachments/assets/a4fae5cc-f532-49bb-8228-d0d3068cd8f1)
 
 Verified with the input '.
 
-It might be blind, which would be somewhat difficult.
+It looks to be blind.
 
 I captured the request sent via burpsuite and put it into a txt file, then used sqlmap to dump the contents of the database:
 
