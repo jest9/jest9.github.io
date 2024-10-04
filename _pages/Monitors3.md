@@ -4,7 +4,6 @@ title: "MonitorsThree"
 date: 2024-10-04 10:04:00 +0000
 categories: Writeup
 ---
-
 MonitorsThree Writeup by <span style="color:yellow">Maniaa</span>.
 
 # Scan
