@@ -8,7 +8,7 @@ MonitorsThree Writeup by <span style="color:yellow">jest</span>.
 
 # Scan
 
-```text
+```
 Nmap scan report for 10.10.11.30
 Host is up (0.025s latency).
 Not shown: 65532 closed tcp ports (conn-refused)
@@ -55,7 +55,7 @@ admin@monitorsthree.htb:31a181c8372e3afc59dab863430610e8
 ```
 
 We can try cracking the admin@monitorsthree credential:
-```bash
+```sh
 hashcat -m 0 -a 0 31a181c8372e3afc59dab863430610e8 /usr/share/wordlists/rockyou.txt
 ```
 This will provide a password.
@@ -123,4 +123,8 @@ After port forwarding 8200 using chisel, we are presented with a login page:
 
 Duplicati is a backup client, however in one version is vulnerable to login bypass as it allows use for the db server passphrase to authenticate instead of the actual intended password.
 This is a big problem as with access to the system and sqllite files, we can craft the passphrase to gain access.
+
+I found the sqllite files in the /opt directory, and then moved them onto my machine.
+
+Then installed sqlite browser, which should allow us to inspect the duplicati-server.sqlite db file.
 
