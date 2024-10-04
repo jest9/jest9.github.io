@@ -116,3 +116,11 @@ udp        0      0 0.0.0.0:68              0.0.0.0:*
 ```
 
 We can forward 8200 so it is reachable from our machine.
+
+After port forwarding 8200 using chisel, we are presented with a login page:
+
+![image](https://github.com/user-attachments/assets/82c5794a-5245-46f8-8c88-d5242a184f4d)
+
+Duplicati is a backup client, however in one version is vulnerable to login bypass as it allows use for the db server passphrase to authenticate instead of the actual intended password.
+This is a big problem as with access to the system and sqllite files, we can craft the passphrase to gain access.
+
