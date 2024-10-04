@@ -124,7 +124,7 @@ After port forwarding 8200 using chisel, we are presented with a login page:
 Duplicati is a backup client, however in one version is vulnerable to login bypass as it allows use for the db server passphrase to authenticate instead of the actual intended password.
 This is a big problem as with access to the system and sqllite files, we can craft the passphrase to gain access.
 
-I found the sqllite files in the /opt directory, and then moved them onto my machine.
+We can acquire the salt via looking in the network tab and viewing the response after making a post request through attempting to authenticate:
+![image](https://github.com/user-attachments/assets/f81aa28d-7706-4480-a9a4-7c07668e5991)
 
-Then installed sqlite browser, which should allow us to inspect the duplicati-server.sqlite db file.
 
