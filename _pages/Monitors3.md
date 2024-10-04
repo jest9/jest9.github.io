@@ -77,7 +77,7 @@ We now have access to cacti with the admin credentials:
 
 Cacti 1.2.26 suffers from rce via import template.
 
-Cacti doesn't validate file names given through the package import feature, allowing it to overwrite files on the system(even outside the cacti base path, as path traversal isn't filtered).
+Cacti doesn't validate file names given through the package import feature, allowing it to write files onto the system or overwrite existing fils(even outside the cacti base path, as path traversal isn't filtered).
 
 More can be found <a href="https://github.com/Cacti/cacti/security/advisories/GHSA-7cmj-g5qc-pj88">here.</a>
 
