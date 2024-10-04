@@ -35,7 +35,7 @@ Nmap done: 1 IP address (1 host up) scanned in 19.67 seconds
 There is SQL injection on the forgot password page on the monitorsthree site.:
 
 <p align="center">
-  <img src="![image](https://github.com/user-attachments/assets/a4fae5cc-f532-49bb-8228-d0d3068cd8f1)" />
+  ![image](https://github.com/user-attachments/assets/a4fae5cc-f532-49bb-8228-d0d3068cd8f1)
 </p>
 
 
