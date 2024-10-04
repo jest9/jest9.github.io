@@ -96,3 +96,23 @@ After setting up a listener, this provides access to www-data on the machine.
 &nbsp;
 
 # Privilege Escalation
+
+With a shell as www-data, I can see some ports open internally:
+
+```
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 0.0.0.0:8084            0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.1:8200          0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.1:46525         0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN
+tcp6       0      0 :::80                   :::*                    LISTEN
+tcp6       0      0 :::22                   :::*                    LISTEN
+udp        0      0 127.0.0.53:53           0.0.0.0:*
+udp        0      0 0.0.0.0:68              0.0.0.0:*
+```
+
+We can forward 8200 so it is reachable from our machine.
