@@ -92,39 +92,18 @@ my-venv/bin/python3 CVE-2024-25641.py \
 ```
 After setting up a listener, this provides access to www-data on the machine.
 
+Since cacti is in use, I enumerated that the credentials for the sql database were just the default cactiuser:cactiuser, so I could login and list the user hashes:
+
+![image](https://github.com/user-attachments/assets/11e6e028-bacf-4c58-821e-94eb4945e8e2)
+
+After cracking using hashcat, I can login as marcus via su:
+
+![image](https://github.com/user-attachments/assets/91bc6910-641f-4d47-a441-ff2061cc073e)
 
 &nbsp;
 
 # Privilege Escalation
 
-With a shell as www-data, I can see some ports open internally:
-
-```
-Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State
-tcp        0      0 0.0.0.0:8084            0.0.0.0:*               LISTEN
-tcp        0      0 127.0.0.1:8200          0.0.0.0:*               LISTEN
-tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
-tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN
-tcp        0      0 127.0.0.1:46525         0.0.0.0:*               LISTEN
-tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN
-tcp6       0      0 :::80                   :::*                    LISTEN
-tcp6       0      0 :::22                   :::*                    LISTEN
-udp        0      0 127.0.0.53:53           0.0.0.0:*
-udp        0      0 0.0.0.0:68              0.0.0.0:*
-```
-
-We can forward 8200 so it is reachable from our machine.
-
-After port forwarding 8200 using chisel, we are presented with a login page:
-
-![image](https://github.com/user-attachments/assets/82c5794a-5245-46f8-8c88-d5242a184f4d)
-
-Duplicati is a backup client, however in one version is vulnerable to login bypass as it allows use for the db server passphrase to authenticate instead of the actual intended password.
-This is a big problem as with access to the system and sqllite files, we can craft the passphrase to gain access.
-
-We can acquire the salt via looking in the network tab and viewing the response after making a post request through attempting to authenticate:
-![image](https://github.com/user-attachments/assets/f81aa28d-7706-4480-a9a4-7c07668e5991)
+With a shell as marcus, I have to enumerate what this user can actually do.
 
 
