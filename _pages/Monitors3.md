@@ -106,4 +106,7 @@ After cracking using hashcat, I can login as marcus via su:
 
 With a shell as marcus, I have to enumerate what this user can actually do.
 
+I added my public key to the authorized key file and accessed the machine, whilst port forwarding 8200 on the box to port 8200 on my local machine.
+
+I believe the path to root is related to duplicati backups, meaning we must crack the web ui so we can access them.
 
