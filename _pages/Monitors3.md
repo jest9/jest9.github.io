@@ -114,7 +114,23 @@ There is a login bypass method <a href="https://medium.com/@STarXT/duplicati-byp
 
 We need to find and move sqlite files on the box to our machine so we can access the contents using sqlite browser, which we can then use to obtain the server passphrase.
 
-![image](https://github.com/user-attachments/assets/5c0d0787-e45a-49b1-b7aa-6831c5e665cf)
+![image](https://github.com/user-attachments/assets/5c0d0787-e45a-49b1-b7aa-6831c5e665c)
+
+We can see that the above matches when attempting to login then examining our burpsuite history:
+
+![image](https://github.com/user-attachments/assets/e0c87262-9259-43e1-b21d-3c1e32a805ae)
+
+Now we know it matches due to the salt being the same, we need the passhprase to generate a valid login password, using the nonce provided by the server:
+
+![image](https://github.com/user-attachments/assets/64646c82-5967-43a4-9780-dfd3e42f8dbd)
+
+The first string shown above is the session_nonce given whenever a session is established, whilst the second is the passphrase from the sqlite database decoded from base64 then converted to hex, resulting in our password below. This is code duplicati uses to generate the noncedpwd, so we can use it to get our own valid credential with the knowledge from sqlite.
+
+We can change the burpsuite password parameter in that session to the one we just generated and gain access to duplicati:
+
+![image](https://github.com/user-attachments/assets/e46e6f8b-2417-4653-a6b0-0195665a12e1)
+
+
 
 
 
