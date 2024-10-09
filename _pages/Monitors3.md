@@ -114,7 +114,7 @@ There is a login bypass method <a href="https://medium.com/@STarXT/duplicati-byp
 
 We need to find and move sqlite files on the box to our machine so we can access the contents using sqlite browser, which we can then use to obtain the server passphrase.
 
-![image](https://github.com/user-attachments/assets/5c0d0787-e45a-49b1-b7aa-6831c5e665c)
+![image](https://github.com/user-attachments/assets/8b203ff8-7992-4dde-98cc-dfeb34baf62b)
 
 We can see that the above matches when attempting to login then examining our burpsuite history:
 
