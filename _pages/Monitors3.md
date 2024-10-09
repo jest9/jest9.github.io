@@ -108,5 +108,13 @@ With a shell as marcus, I have to enumerate what this user can actually do.
 
 I added my public key to the authorized key file and accessed the machine, whilst port forwarding 8200 on the box to port 8200 on my local machine.
 
-I believe the path to root is related to duplicati backups, meaning we must crack the web ui so we can access them.
+I believe the path to root is related to duplicati backups, meaning we must crack the duplicati web ui shown on 8200 so we can access them.
+
+There is a login bypass method <a href="https://medium.com/@STarXT/duplicati-bypassing-login-authentication-with-server-passphrase-024d6991e9ee">here.</a>
+
+We need to find and move sqlite files on the box to our machine so we can access the contents using sqlite browser, which we can then use to obtain the server passphrase.
+
+![image](https://github.com/user-attachments/assets/5c0d0787-e45a-49b1-b7aa-6831c5e665cf)
+
+
 
