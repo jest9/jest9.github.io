@@ -73,6 +73,27 @@ function encodeSecret($secret) {
 
 &nbsp;
 
-# Level 8
+# Level 9
 
+Just a basic dictionary, searches for string given in dictionary file. As the underlying mechanism uses grep on user input it allows for command injection. By visiting http://natas9.natas.labs.overthewire.org/?needle=;cat%20/etc/passwd, the semi-colon causes it to end the command and displays the /etc/passwd file.
+
+Visiting /etc/natas_webpass/natas10 provides us with the natas10 password.
+
+```
+<?
+$key = "";
+
+if(array_key_exists("needle", $_REQUEST)) {
+    $key = $_REQUEST["needle"];
+}
+
+if($key != "") {
+    passthru("grep -i $key dictionary.txt");
+}
+?>
+```
+
+&nbsp;
+
+# Level 10
 
