@@ -14,4 +14,12 @@ General descriptions.
 
 Password for next page is located inside the HTML page, acquired via inspect element.
 
+&nbsp;
+
 # Level 1
+
+Same thing but right click is blocked, use ctrl+shift+i hotkey.
+
+&nbsp;
+
+# Level 2
