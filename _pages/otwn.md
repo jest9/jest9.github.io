@@ -63,7 +63,7 @@ Basic ui where index.php uses the page parameter to dynamically determine what c
 
 Requires a secret to get credentials. The source code exposes the encoded secret with the proces used to encode it. We reverse the encoded secret by decoding it from hex and then reversing the string, followed by decoding from base64. Upon entering this we get credentials for natas9.
 
-```
+```php
 $encodedSecret = "3d3d516343746d4d6d6c315669563362";
 
 function encodeSecret($secret) {
@@ -75,11 +75,11 @@ function encodeSecret($secret) {
 
 # Level 9
 
-Just a basic dictionary, searches for string given in dictionary file. As the underlying mechanism uses grep on user input it allows for command injection. By visiting http://natas9.natas.labs.overthewire.org/?needle=;cat%20/etc/passwd, the semi-colon causes it to end the command and displays the /etc/passwd file.
+Just a basic dictionary, searches for string given in dictionary file. As the underlying mechanism uses grep on user input ($key) it allows for command injection. By visiting http://natas9.natas.labs.overthewire.org/?needle=;cat%20/etc/passwd, the semi-colon causes it to end the command and displays the /etc/passwd file.
 
 Visiting /etc/natas_webpass/natas10 provides us with the natas10 password.
 
-```
+```php
 <?
 $key = "";
 
