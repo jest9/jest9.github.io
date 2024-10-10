@@ -61,4 +61,18 @@ Basic ui where index.php uses the page parameter to dynamically determine what c
 
 # Level 8
 
+Requires a secret to get credentials. The source code exposes the encoded secret with the proces used to encode it. We reverse the encoded secret by decoding it from hex and then reversing the string, followed by decoding from base64. Upon entering this we get credentials for natas9.
+
+```
+$encodedSecret = "3d3d516343746d4d6d6c315669563362";
+
+function encodeSecret($secret) {
+    return bin2hex(strrev(base64_encode($secret)));
+}
+```
+
+&nbsp;
+
+# Level 8
+
 
