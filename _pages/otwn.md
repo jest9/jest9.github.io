@@ -5,7 +5,7 @@ date: 2024-10-04 10:04:00 +0000
 categories: Writeup
 ---
 
-Answer to every natas step.
+Answer to every <span style="color:blue">natas</span> step.
 
 General descriptions.
 
