@@ -97,3 +97,8 @@ if($key != "") {
 
 # Level 10
 
+Same thing as before however with filtered characters (except `, however substitution didn't appear to work.). We can alter the grep query by entering "a /etc/passwd", exploiting the fact that grep can search through multiple files at once. We can use this to get the password from /etc/natas_webpass/natas11.
+
+&nbsp;
+
+# Level 11
