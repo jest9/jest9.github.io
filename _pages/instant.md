@@ -28,9 +28,9 @@ Nmap done: 1 IP address (1 host up) scanned in 29.91 seconds
 
 The site has an APK to install, which I then decompiled using jadx:
 
-![image](https://github.com/user-attachments/assets/c5fd4760-0da2-4538-9441-788d08dfce4e)
+![image](https://github.com/user-attachments/assets/5f10ee35-980b-49eb-95a9-8b49ee732518)
 
-From viewing this file I have now a JWT:
+This provides us with both a JWT and also the subdomain mywalletv1 for instant.htb.
 
 ![image](https://github.com/user-attachments/assets/7effe06e-6dda-4241-bc78-fcd2e58a9288)
 
