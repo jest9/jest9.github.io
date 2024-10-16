@@ -34,8 +34,6 @@ From viewing this file I have now a JWT:
 
 ![image](https://github.com/user-attachments/assets/7effe06e-6dda-4241-bc78-fcd2e58a9288)
 
-From further inspection we also find a subdomain:
+I put it into burpsuite as it seems that if I were to make a request to mywalletv1.instant.htb/api/v1/view/profile with the correct authorization header, I might be able to see something:
 
-![image](https://github.com/user-attachments/assets/84ca14a7-1440-4775-99a3-7f45f97cc490)
-
-This could be where we can use the token we got, or something.
+![image](https://github.com/user-attachments/assets/8cbb88b1-fe5a-4284-a97d-d0278c3612fe)
