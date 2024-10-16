@@ -33,3 +33,9 @@ The site has an APK to install, which I then decompiled using jadx:
 From viewing this file I have now a JWT:
 
 ![image](https://github.com/user-attachments/assets/7effe06e-6dda-4241-bc78-fcd2e58a9288)
+
+From further inspection we also find a subdomain:
+
+![image](https://github.com/user-attachments/assets/84ca14a7-1440-4775-99a3-7f45f97cc490)
+
+This could be where we can use the token we got, or something.
