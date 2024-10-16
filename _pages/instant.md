@@ -37,3 +37,13 @@ This provides us with both a JWT and also the subdomain mywalletv1 for instant.h
 I put it into burpsuite as it seems that if I were to make a request to mywalletv1.instant.htb/api/v1/view/profile with the correct authorization header, I might be able to see something:
 
 ![image](https://github.com/user-attachments/assets/8cbb88b1-fe5a-4284-a97d-d0278c3612fe)
+
+Some more enumeration shows another subdomain for a swagger api backend:
+
+![image](https://github.com/user-attachments/assets/e01a484b-91e4-499d-ba09-538337930839)
+
+Upon visiting the backend we can authorize as admin with the key we found by decompiling the .apk file, and we can make requests to read logfiles however, we give the filename:
+
+![image](https://github.com/user-attachments/assets/7cef2d08-6de0-4815-997d-c10702cf4942)
+
+We now have the ability to read files, so we can attempt to find ssh keys or something.
