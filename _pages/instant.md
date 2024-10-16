@@ -6,7 +6,7 @@ categories: Writeup
 ---
 Instant Writeup by <span style="color:yellow">jest</span>.
 
-# Scan
+# Scan Results
 
 ```
 Nmap scan report for 10.129.42.207
@@ -25,6 +25,8 @@ Service Info: Host: instant.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 29.91 seconds
 ```
+
+# .APK
 
 The site has an APK to install, which I then decompiled using jadx:
 
@@ -47,3 +49,10 @@ Upon visiting the backend we can authorize as admin with the key we found by dec
 ![image](https://github.com/user-attachments/assets/7cef2d08-6de0-4815-997d-c10702cf4942)
 
 We now have the ability to read files, so we can attempt to find ssh keys or something.
+
+I find the id_rsa file for the user shirohige and use it to login:
+
+![image](https://github.com/user-attachments/assets/1d61c470-c83c-49b8-a5eb-9e2c7391e958)
+
+
+# Privilege Escalation
